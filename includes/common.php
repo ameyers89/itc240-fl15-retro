@@ -44,6 +44,7 @@ function myerror($myFile, $myLine, $errorMsg)
  * @see dbIn()
  * @todo none
  */
+
 function dbOut($str)
 {
 	if($str!=""){$str = stripslashes(trim($str));}//strip out slashes entered for SQL safety

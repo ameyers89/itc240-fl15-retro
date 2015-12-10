@@ -19,10 +19,10 @@
 require 'includes/config.php'; #provides configuration, pathing, error handling, db credentials 
  
 # SQL statement
-$sql = "select * from test_Customers";
+$sql = "select * from record_Collection";
 
 #Fills <title> tag  
-$title = 'Customer List/View/Pager';
+$title = 'Record Collection/View/Pager';
 
 # END CONFIG AREA ---------------------------------------------------------- 
 
@@ -44,18 +44,18 @@ $iConn = @mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME) or die(myerror(__F
 
 
 # Create instance of new 'pager' class
-$myPager = new Pager(2,'',$prev,$next,'');
+$myPager = new Pager(10,'',$prev,$next,'');
 $sql = $myPager->loadSQL($sql,$iConn);  #load SQL, pass in existing connection, add offset
 $result = mysqli_query($iConn,$sql) or die(myerror(__FILE__,__LINE__,mysqli_error($iConn)));
 
 if(mysqli_num_rows($result) > 0)
 {#records exist - process
-	if($myPager->showTotal()==1){$itemz = "customer";}else{$itemz = "customers";}  //deal with plural
+	if($myPager->showTotal()==1){$itemz = "record";}else{$itemz = "records";}  //deal with plural
     echo '<p align="center">We have ' . $myPager->showTotal() . ' ' . $itemz . '!</p>';
 	while($row = mysqli_fetch_assoc($result))
 	{# process each row
          echo '<p align="center">
-            <a href="' . VIRTUAL_PATH . 'customer_view.php?id=' . (int)$row['CustomerID'] . '">' . dbOut($row['FirstName']) . '</a>
+            <a href="' . VIRTUAL_PATH . 'record_view.php?id=' . (int)$row['RecordID'] . '">' . dbOut($row['Album']) . '</a>
             </p>';
 	}
 	//the showNAV() method defaults to a div, which blows up in our design
@@ -64,7 +64,7 @@ if(mysqli_num_rows($result) > 0)
     //the version below adds the optional bookends to remove the div design problem
     //echo $myPager->showNAV('<p align="center">','</p>');
 }else{#no records
-    echo "<p align=center>What! No Customers?  There must be a mistake!!</p>";	
+    echo "<p align=center>What! No Records?  There must be a mistake!!</p>";	
 }
 @mysqli_free_result($result);
 @mysqli_close($iConn);

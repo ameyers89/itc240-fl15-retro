@@ -11,9 +11,7 @@ include 'MyAutoLoader.php'; //loads class that autoloads all classes in include 
 
 /* use the following path settings for placing all code in one application folder */ 
 define('VIRTUAL_PATH', 'http://andyameyers.com/240/retro/'); # Virtual (web) 'root' of application for images, JS & CSS files
-
 define('PHYSICAL_PATH', '/home/andmey17/andyameyers.com/240/retro/'); # Physical (PHP) 'root' of application for file & upload reference
-
 define('INCLUDE_PATH', PHYSICAL_PATH . 'includes/'); # Path to PHP include files - INSIDE APPLICATION ROOT
 
 ob_start();  #buffers our page to be prevent header errors. Call before INC files or ANY html!
