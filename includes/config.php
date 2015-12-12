@@ -42,11 +42,14 @@ define('INCLUDE_PATH', PHYSICAL_PATH . 'includes/'); # Path to PHP include files
 define('ADMIN_PATH', VIRTUAL_PATH); # Could change to sub folder
 
 ob_start();  #buffers our page to be prevent header errors. Call before INC files or ANY html!
-header("Cache-Control: no-cache");header("Expires: -1");#Helps stop browser & proxy caching
+
+//deleting the following cleared 2 errors on daily, about us, home page
+//header("Cache-Control: no-cache");header("Expires: -1");#Helps stop browser & proxy caching 
 
 # END BOOTSTRAP CODE, START SITE SPECIFIC DATA ---------------------------
 
 //this allows us to add unique info to our pages
+
 switch(THIS_PAGE)
 {
 	 case "index.php":

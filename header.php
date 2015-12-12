@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <head>
-	<title>template about</title>
+	<title><?=$title?></title>
 	<meta charset="utf-8">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -9,7 +9,7 @@
 	<div id="header">
 		<div>
 			<a href="index.html"><img class="logo" src="images/logo.png" width="513" height="84" alt="" title=""></a>
-			<a href="index.html"><img  src="images/waitress.png" width="332" height="205" alt="" title=""></a>
+			<a href="index.html"><img  src="images/<?=$headerPic?>" width="332" height="205" alt="" title=""></a>
 			<ul class="navigation">
                 //<?=makeLinks($nav1)?>
                 
@@ -35,4 +35,5 @@
 		<div id="content">
 			<div>
 				<div>
+                    <h1><?=$pageID?></h1>
                     <!--header ends here-->
